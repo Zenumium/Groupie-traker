@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie-Tracker</title>
+    <link rel="shortcut icon" href="/static/png/vinyle.png">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/Background.css">
+    <audio id="clickSound" src="/static/sound/click.ogg" preload="auto"></audio>
+    <script>
+        function PlaySound() {
+          var sound = document.getElementById("clickSound");
+          sound.play();
+          setTimeout(function(){ location.href = 'http://localhost:8080/groupe/'; }, sound.duration * 1000);
+      }
+      //Script Java to not spam click sound
+      //when click on page play a sound effect
+      document.addEventListener('click', () => { // Reset audio position
+      clickSound.play();
+      setTimeout(() => {
+        audio.play()
+      }, sound.duration * 1000);
+    });
+    </script>
+    <style>
+        .title {
+            text-align: center;
+        }
+        .title :hover {
+        font-size: 80px;
+        transition: font-size 0.5s ease;
+        transform: scale(1.1);
+        }
+        .scroll-container {
+            flex: 1;
+            overflow-y: overlay;
+            padding: 70px;
+            filter: drop-shadow(0 0 2px);
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .grid-item img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .grid-item h2 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="background-image"></div>
+        <div class="arrows"></div>
+        <div class="backgroundbars"></div>
+        <div class="buildings"></div>
+        <div class="lightbuildings"></div>
+        <div class="characters"></div>
+        <div class="SpinVynile"></div>
+    </div>
+    
+    <h1 class="title">Groupie-Tracker</h1>
+    
+    <div class="scroll-container">
+        <div class="grid-container">
+            {{if .}}
+            {{range .apiResponse}}
+            <div class="grid-item">
+                <a href="/groupe/{{.Id}}">
+                    <img src="{{.Image}}" alt="{{.Name}} ">
+                </a>
+                <h2>{{.Name}}</h2>
+            </div>
+            {{end}}
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>

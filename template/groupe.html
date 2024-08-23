@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Groupe-Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/png/vinyle.png">
+    <link rel="stylesheet" href="/static/BackgroundResult.css">
+    <link rel="stylesheet" href="/static/Btn_style.css">
+    <audio id="audio" src="/static/sound/button_sound.ogg" autostart="false" ></audio>
+    <audio id="clickSound" src="/static/sound/sound.ogg" preload="auto"></audio>
+    <style>
+    @font-face {
+      font-family: 'FridayNight';
+      src: url('/static/Font/FridayNight.ttf') format('truetype');
+    }
+    h3 {
+      color: white;
+      margin-bottom: 100px;
+      text-align: center; /* Center text within the button */
+      filter: drop-shadow(0 0 10px);
+      -webkit-text-stroke: 0.5px purple;
+    }
+    h1 {
+      color: white;
+      font-size: 2em;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px);
+      -webkit-text-stroke: 0.7px purple;
+    }
+    h2 {
+      color: white;
+      font-size: 1.5em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 10px);
+      -webkit-text-stroke: 0.7px purple;
+    }
+    ul {
+      padding-left: 0;
+      list-style-type: none;
+    }
+    .boxrelations {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 25px;
+      margin-top: 20px;
+      font-size: 25px;
+      -webkit-text-stroke: 0.7px purple;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+        color: white
+      }
+      h1 {
+        font-size: 1.7em;
+        color: white
+      }
+      h2 {
+        font-size: 1.7em;
+        color: white
+      }
+    }
+    </style>
+</head>
+<body>
+  <style>
+    .content img {
+     border-radius: 50%;
+     filter: drop-shadow(0 0 10px);
+    }
+  </style>
+    <script>
+    function PlaySound() {
+          var sound = document.getElementById("clickSound");
+          var sound = document.getElementById("audio");
+          sound.play();
+          setTimeout(function(){ location.href = 'http://localhost:8080'; }, sound.duration * 800);
+      }
+      //Script Java to not spam click sound
+      //when click on page play a sound effect
+      document.addEventListener('click', () => { // Reset audio position
+      clickSound.play();
+      setTimeout(() => {
+        audio.play()
+      }, sound.duration * 0);
+      });
+    </script>
+<button type="button" class="sound_button" onclick="PlaySound();">
+  <img src="/static/png/icon-skarletsingle.png" alt="Go_Back" />
+  RETURN HOME
+</button>
+    <div class="background-elements">
+        <div class="background-image"></div>
+        <div class="arrows"></div>
+        <div class="backgroundbars"></div>
+        <div class="buildings"></div>
+        <div class="lightbuildings"></div>
+        <div class="characters"></div>
+        <div class="SpinVynile"></div>
+    </div>
+    <div class="content">
+        <h1>{{.Artists.Name}} ({{.Artists.CreationDate}})</h1>
+        <img src="{{.Artists.Image}}" alt="{{.Artists.Name}}">
+        <h2>Members:</h2>
+        <p>{{range $index, $member := .Artists.Members}}{{if $index}}, {{end}}{{$member}}{{end}}</p>
+        <h2>First Album:</h2>
+        <p>{{.Artists.FirstAlbum}}</p>
+        <div class="boxrelations">
+            <h2>Concerts:</h2>
+            <ul>
+                {{range .Relations}}
+                <li>{{.Location}} - {{.Date}}</li>
+                {{end}}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
