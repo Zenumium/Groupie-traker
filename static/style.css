@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'FridayNight';
+    src: url('/static/Font/FridayNight.ttf') format('truetype');
+}
+h1{
+    font-family: 'FridayNight';
+    color: #ffffff;
+    filter: drop-shadow(0 0 5px);
+    -webkit-text-stroke: 0.5px purple;
+
+}
+h2{
+    font-family: 'FridayNight';
+    color: #e9e4e4;
+    font-size: 30px;
+    filter: drop-shadow(0 0 5px);
+    -webkit-text-stroke: 0.5px purple;
+
+}
+.title {
+    font-size: 60px;
+}

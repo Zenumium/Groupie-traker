@@ -1,0 +1,13 @@
+/* ------ Navbar ------- */
+.navbar {
+  background-image: url('/static/png/navvinyle.png');
+  background-size: 450px; /* Set width or height, not both */
+  background-repeat: no-repeat;
+  position: absolute; /* Ensures element stays fixed */
+  left: -210px; /* Top left corner */
+  top: -210px;
+  width: 1000px; 
+  height: 1000px;
+  z-index: -2; /* Adjust if needed */
+  overflow: hidden;
+}

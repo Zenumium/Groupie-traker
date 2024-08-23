@@ -1,0 +1,76 @@
+@font-face {
+    font-family: FridayNight; /* Give your font a name */
+    src: url('/static/Font/FridayNight.ttf');
+}
+
+body {
+    font-family: FridayNight;
+    background: url('/static/png/skyy.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.name {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 7rem;
+    font-weight: 900;
+    margin: 0;
+    color: #ce78cf;
+}
+
+.info {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+}
+
+.artists {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.list {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    padding: 2rem;
+}
+
+.text-error {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #db8bf3;
+    text-align: center;
+}
+
+a {
+    color: #ac59af;
+    text-decoration: none;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+a:hover {
+    color: #7e2381;
+}

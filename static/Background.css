@@ -1,0 +1,92 @@
+/*----- background image ----------*/
+body {
+  background: url('/static/png/Background.png');
+  background-repeat: no-repeat;
+  background-position: absolute;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 0;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+/*------ Background Bars ------*/
+.backgroundbars {
+    background-image: url('/static/png/bars.png');
+    background-size: 110vw 135vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed; /* or fixed, depending on your layout */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -3; /* to ensure it's behind other elements */
+    filter: drop-shadow(0 5px 5px);
+
+  }
+  /*--------- Buildings Background -----------*/
+.buildings {
+    background-image: url('/static/png/buildings.png');
+    background-size: cover 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed; /* or fixed, depending on your layout */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -4; /* to ensure it's behind other elements */
+    filter: drop-shadow(0 0 15px);
+}
+
+.lightbuildings{
+  background-image: url('/static/png/light.png');
+  background-size: cover 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: fixed; /* or fixed, depending on your layout */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -4; /* to ensure it's behind other elements */
+  filter: blur(10px); /* Adjust the blur amount for desired intensity */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.932); /* Adjust color and size for effect */
+}
+.characters {
+  background-image: url('/static/png/skarlet.png');
+  background-size: 55vh 85vh; /* Set width or height, not both */
+  background-repeat: no-repeat;
+  position: fixed; /* Ensures element stays fixed */
+  left: 72%; /* Top left corner */
+  top: 10%;
+  width: 1000px; 
+  height: 1000px;
+  z-index: -4; /* Adjust if needed */
+  filter: drop-shadow(10px 0 20px);
+}
+.SpinVynile {
+  position: absolute;
+  bottom: -425px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 750px;
+  height: 750px;
+  background-image: url('/static/png/vinyle.png');
+  background-size: cover;
+  border-radius: 50%;
+  animation: spin 6s linear infinite;
+  z-index: -4;
+  filter: drop-shadow(0 0 10px);
+}
+@keyframes spin{
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+

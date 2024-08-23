@@ -1,0 +1,4 @@
+.Backerror {
+    background-image: url('/static/png/overlay.png');
+    z-index: 1;
+}
